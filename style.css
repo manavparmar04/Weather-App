@@ -1,0 +1,164 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+
+body {
+    background: linear-gradient(112.1deg, rgb(32, 38, 57) 11.4%, rgb(63, 76, 119) 70.2%);;
+}
+
+.card {    /* Essentially the main body*/
+    width: 90%; 
+    max-width: 470px; 
+    background-color: #8EC5FC;
+    background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+ /* Background color */
+    color: #fff; /* Text color inside the main body*/
+    margin: 100px auto 0; /* 100 px from top and auto from bottom*/
+    border-radius: 20px; /* Making the boarders round 45px top and 35px bottom */
+    padding: 40px 35px; /* Space within the card */
+    text-align: center; /* */
+
+}
+
+.search { /* refers to the parent container or wrapper element that contains the search input field. It sets the styles for the search box container itself. Any changes made here will effect all child elements */
+    width: 100%;
+    display: flex; /*  flex items can then be positioned, aligned, and distributed within the flex container using various flexbox properties.*/
+    align-items: center;
+    justify-content: space-between; /* Property of flex*/
+}
+
+.search input {   /*  refers to the specific <input> element within the .search container. It sets the styles specifically for the search input field. Applying styles specifcally to this class */
+    border: 1; /* might change later to 0 */
+    outline: 0;
+    background: #fff;
+    color: #555;
+    padding: 10px 25px;
+    height: 60px;
+    border-radius: 30px;
+    flex: 1;
+    transition: background-color 0.20s, 
+                   color 0.15s;
+    margin-right: 16px;
+    font-size: 18px
+    
+    
+
+}
+.search input:hover {
+    background-color: #e6e6e6;
+
+}
+
+.search input:active {
+    opacity: 0.9;
+}
+
+.search button {  /* Styling button field*/
+    border: 0;
+    outline: 0;
+    background: #fff;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    transition: background-color 0.20s, 
+                   color 0.15s;
+
+}
+
+
+
+.search button img{ /* Style the actual image (resizing)*/
+    width: 25px;
+    
+}
+
+.search button:hover{
+    background-color: #a2a2a2;
+    box-shadow: 5px 5px 5px rgba(0, 0 , 0, 0.15) ;
+}
+
+.search button:active {
+    opacity: 0.5;
+}
+
+
+
+.weather-icon {
+    width: 170px;
+    margin-top: 30px;
+}
+
+.weather h1 {
+    font-size: 80px;
+    font-weight: 500; /* Controls thickenss of the font*/
+
+}
+
+.weather h2 {
+    font-size: 45px;
+    font-weight: 400; /* Controls thickenss of the font*/
+    margin-top: -15px;
+
+}
+
+.weather h3{
+    font-size: 25px;
+    font-weight: 300; /* Controls thickenss of the font*/
+    margin-top: 3px;
+
+}
+
+
+ 
+.details {
+    display: flex; /* Because we are adding two columns*/
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px; /* Left and right side */
+    margin-top: 50px;
+
+}
+
+.col {
+    display: flex;
+    align-items: center;
+    text-align: left;
+}
+
+.col img {
+    width: 40px;
+    margin-right: 10px;
+}
+
+.humidity, .wind {
+    font-size: 28px;
+    margin-top: -8px;
+
+}
+
+.weather {
+    display: none;
+}
+
+
+.error {
+    text-align: left;
+    margin-left: 10px;
+    font-size: 14px;
+    margin-top: 10px;
+    display: none;
+}
+
+
+
+
+
+
+
+
+

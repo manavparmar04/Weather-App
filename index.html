@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather app</title>
+    <link rel = "stylesheet" href = "style.css">
+</head>
+<body>
+    <div class="card">
+        <div class="search">
+            <input type="text" placeholder="Enter city name" 
+            spellcheck="false">     
+            <button ><img src="Weather icons/search.png"></button> 
+        </div>
+        <div class="error">
+            <p>Invalid City name</p>
+        </div> 
+        <div class="weather">
+            <img src="Weather icons/rain.png" class="weather-icon">
+            <h1 class="temp">22°c</h1>
+            <h2 class="city">New York</h2>
+            <h3 class= "country">CA</h3>
+            <div class="details">
+                <div class="col">
+                    <img src="Weather icons/humidity.png">
+                    <div>
+                        <p class="humidity">50%</p>
+                        <p>Humidity</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <img src="Weather icons/wind.png">
+                    <div>
+                        <p class="wind">15 km/h</p>
+                        <p>Wind Speed</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    –
+    <script>
+    const apiKey = "1da86eff4b8a8c09f4daf535228429b6";
+    const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
+    const searchBox = document.querySelector(".search input")
+    const searchBtn = document.querySelector(".search button")
+    const weatherIcon = document.querySelector(".weather-icon")
+
+    async function checkWeather(city) { //  allows you to write asynchronous code in a more synchronous style
+        const response = await fetch(apiUrl + city + `&appid=${apiKey}`) // keyword "await" to pause the execution of the function until a promise is resolved or rejected.
+
+        if(response.status == 404){
+            document.querySelector(".error").style.display = "block";
+            document.querySelector(".weather").style.display = "none";
+        }
+        else{
+            var data = await response.json(); // Will have all the information about the weather 
+
+console.log(data); // Displays weather information in JSON format 
+
+document.querySelector(".city").innerHTML = data.name;
+document.querySelector(".temp").innerHTML = Math.round(data.main.temp)+ "°c" ;
+document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
+document.querySelector(".wind").innerHTML = data.wind.speed + " km/h";
+document.querySelector(".country").innerHTML = data.sys.country;
+
+
+
+if (data.weather[0].main == "Clouds") {
+    weatherIcon.src = "Weather icons/cloudy.png";
+}
+else if (data.weather[0].main == "Clear") {
+    weatherIcon.src = "Weather icons/clear.png";
+}
+else if (data.weather[0].main == "Rain"){
+    weatherIcon.src = "Weather icons/rain.png";
+}
+else if (data.weather[0].main == "Drizzle"){
+    weatherIcon.src = "Weather icons/drizzle.png";
+}
+else if (data.weather[0].main == "Mist") {
+    weatherIcon.src = "Weather icons/mist.png"
+}
+
+document.querySelector(".weather").style.display = "block";    
+document.querySelector(".error").style.display = "none";
+            
+        }
+
+      
+            
+        
+        
+        
+
+
+
+
+    
+
+}
+
+searchBtn.addEventListener("click", ()=>{
+    checkWeather(searchBox.value);
+})
+
+checkWeather();
+
+
+
+    </script>
+</body>
+</html>
+
+
+
+ <!--Line 12:Checking the spelling off -->
+ <!--Line 11:Placeholder: will be displayed in the input field until the user starts typing-->
+ <!--Line 11:Input: used to create an input field where users can enter or select data.-->
+ <!--Line 17:Heading tags used to define different levels of headings or titles on a webpage-->
+ <!--Line 23:Used to define a paragraph of text-->
